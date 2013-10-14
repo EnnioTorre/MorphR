@@ -69,6 +69,7 @@ public class MorphR implements Oracle {
                       (Integer) input.getParam(Param.AvgGetsPerROTransaction) + "," +
                       (Integer) input.getParam(Param.AvgGetsPerWrTransaction) + "," +
                       (Integer) input.getParam(Param.AvgPutsPerWrTransaction) + "," +
+                      (Integer) input.getParam(Param.LocalReadOnlyTxLocalServiceTime) + "," +
                       (Integer) input.getParam(Param.LocalUpdateTxLocalServiceTime) + "," +
                       (Integer) input.getParam(Param.AvgClusteredGetCommandReplySize) + "," +
                       (Integer) input.getParam(Param.AvgPrepareCommandSize) + "," +
