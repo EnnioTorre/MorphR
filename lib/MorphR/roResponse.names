@@ -1,15 +1,16 @@
-roResponse.
+throughput.
 
 memory: continuous.
 readsPerRO: continuous.
 readsPerWr: continuous.
 putsPerWr: continuous.
+localServiceTimeROXact: continuous.
 localServiceTimeWrXact: continuous.
 sizeRemoteGetReplyMsg: continuous.
 sizePrepareMsg: continuous.
 writePercentageXact: continuous.
 numNodes: continuous.
 replicationDegree: continuous.
-roResponse: continuous.
+throughput: continuous.
 
 

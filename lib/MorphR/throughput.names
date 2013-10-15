@@ -4,6 +4,7 @@ memory: continuous.
 readsPerRO: continuous.
 readsPerWr: continuous.
 putsPerWr: continuous.
+localServiceTimeROXact: continuous.
 localServiceTimeWrXact: continuous.
 sizeRemoteGetReplyMsg: continuous.
 sizePrepareMsg: continuous.
