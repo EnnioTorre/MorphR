@@ -37,11 +37,15 @@ import eu.cloudtm.autonomicManager.oracles.InputOracle;
 import eu.cloudtm.autonomicManager.oracles.Oracle;
 import eu.cloudtm.autonomicManager.oracles.OutputOracle;
 import eu.cloudtm.autonomicManager.oracles.exceptions.OracleException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import utils.PropertyReader;
+
+import java.util.Arrays;
 
 
 public class MorphR implements Oracle {
-
+   private static final Log log = LogFactory.getLog(MorphR.class);
    private static String cubistLibraryFilename = PropertyReader.getString("cubistLibraryFilename", "/config/MorphR/MorphR.properties");
 
    public native void initiateCubist(String filename);
@@ -51,7 +55,13 @@ public class MorphR implements Oracle {
    public native double[] getPredictionAndError(String query);
 
    static {
-      System.loadLibrary(cubistLibraryFilename);
+      try {
+         System.loadLibrary(cubistLibraryFilename);
+      } catch (Exception e) {
+         log.error(e);
+         log.error(Arrays.toString(e.getStackTrace()));
+      }
+      log.trace(cubistLibraryFilename + " loaded");
    }
 
    @Override
@@ -64,18 +74,20 @@ public class MorphR implements Oracle {
    }
 
    private String buildQueryString(InputOracle input) {
-      return new String(
-              (Integer) input.getParam(Param.MemoryInfo_used) + "," +
-                      (Integer) input.getParam(Param.AvgGetsPerROTransaction) + "," +
-                      (Integer) input.getParam(Param.AvgGetsPerWrTransaction) + "," +
-                      (Integer) input.getParam(Param.AvgPutsPerWrTransaction) + "," +
-                      (Integer) input.getParam(Param.LocalReadOnlyTxLocalServiceTime) + "," +
-                      (Integer) input.getParam(Param.LocalUpdateTxLocalServiceTime) + "," +
-                      (Integer) input.getParam(Param.AvgClusteredGetCommandReplySize) + "," +
-                      (Integer) input.getParam(Param.AvgPrepareCommandSize) + "," +
-                      (Integer) input.getParam(Param.PercentageWriteTransactions) + "," +
-                      (Integer) input.getForecastParam(ForecastParam.NumNodes) + "," +
-                      (Integer) input.getForecastParam(ForecastParam.ReplicationDegree) + ",?");
+      String s = input.getParam(Param.MemoryInfo_used) + "," +
+              input.getParam(Param.AvgGetsPerROTransaction) + "," +
+              input.getParam(Param.AvgGetsPerWrTransaction) + "," +
+              input.getParam(Param.AvgPutsPerWrTransaction) + "," +
+              input.getParam(Param.LocalReadOnlyTxLocalServiceTime) + "," +
+              input.getParam(Param.LocalUpdateTxLocalServiceTime) + "," +
+              input.getParam(Param.AvgClusteredGetCommandReplySize) + "," +
+              input.getParam(Param.AvgPrepareCommandSize) + "," +
+              input.getParam(Param.PercentageWriteTransactions) + "," +
+              input.getForecastParam(ForecastParam.NumNodes) + "," +
+              input.getForecastParam(ForecastParam.ReplicationDegree) + ",?";
+      log.trace("Query string " + s);
+      return s;
+
    }
 
 
