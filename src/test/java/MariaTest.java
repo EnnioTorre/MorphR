@@ -6,8 +6,8 @@ import eu.cloudtm.autonomicManager.oracles.InputOracleWPM;
 import eu.cloudtm.autonomicManager.oracles.OutputOracle;
 import eu.cloudtm.autonomicManager.oracles.exceptions.OracleException;
 import eu.cloudtm.autonomicManager.statistics.ProcessedSample;
-import eu.cloudtm.autonomicManager.statistics.TWOPCProcessedSample;
-import eu.cloudtm.autonomicManager.statistics.WPMSample;
+import eu.cloudtm.autonomicManager.statistics.samples.TWOPCProcessedSample;
+import eu.cloudtm.autonomicManager.statistics.samples.WPMSample;
 import morphr.MorphR;
 
 import java.util.HashMap;
