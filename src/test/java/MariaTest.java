@@ -33,6 +33,7 @@ public class MariaTest {
       map.put(Param.AvgGetsPerROTransaction.getKey(), 10);
       map.put(Param.AvgGetsPerWrTransaction.getKey(), 10);
       map.put(Param.AvgPutsPerWrTransaction.getKey(), 10);
+      map.put(Param.LocalReadOnlyTxLocalServiceTime.getKey(), 10);
       map.put(Param.LocalUpdateTxLocalServiceTime.getKey(), 10);
       map.put(Param.ReplicationDegree.getKey(), 10);
       map.put(Param.AvgClusteredGetCommandReplySize.getKey(), 10);

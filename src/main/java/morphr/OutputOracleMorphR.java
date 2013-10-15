@@ -55,7 +55,7 @@ public class OutputOracleMorphR implements OutputOracle {
 
    public OutputOracleMorphR(MorphR m, String q, InputOracle inputO) {
       morphr = m;
-      replicationProtocol = extractReplicationProtocol(input);
+      replicationProtocol = extractReplicationProtocol(inputO);
       query = q;
       input = inputO;
    }
