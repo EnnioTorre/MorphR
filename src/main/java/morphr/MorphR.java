@@ -46,7 +46,7 @@ import java.util.Arrays;
 
 public class MorphR implements Oracle {
    private static final Log log = LogFactory.getLog(MorphR.class);
-   private static String cubistLibraryFilename = PropertyReader.getString("cubistLibraryFilename", "/config/MorphR/MorphR.properties");
+   private static String cubistLibraryFilename = PropertyReader.getString("cubistLibraryFilename", "/conf/MorphR/MorphR.properties");
 
    public native void initiateCubist(String filename);
 
