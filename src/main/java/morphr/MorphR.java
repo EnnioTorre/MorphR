@@ -83,9 +83,11 @@ public class MorphR implements Oracle {
               input.getParam(Param.AvgClusteredGetCommandReplySize) + "," +
               input.getParam(Param.AvgPrepareCommandSize) + "," +
               input.getParam(Param.PercentageWriteTransactions) + "," +
+              input.getParam(Param.NumberOfEntries) + ","+
               input.getForecastParam(ForecastParam.NumNodes) + "," +
               input.getForecastParam(ForecastParam.ReplicationDegree) + ",?";
-      log.trace("Query string " + s);
+              
+              log.trace("Query string " + s);
       return s;
 
    }
